@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base-950 text-ink-100 font-body antialiased;
+  }
+
+  /* --- Mode clair --- */
+  html.light body {
+    @apply bg-[#F6F8FC] text-[#1B2333];
+  }
+
+  html.light .card-surface {
+    @apply bg-white border-[#E4E9F5];
+  }
+
+  ::selection {
+    background-color: rgba(16, 185, 129, 0.35);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid #10B981;
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E4438;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2A5C4A;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-200 via-brand-400 to-brand-600 bg-clip-text text-transparent;
+  }
+
+  .bg-radial-grid {
+    background-image: radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.16), transparent 55%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
